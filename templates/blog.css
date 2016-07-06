@@ -4,7 +4,10 @@
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
+  background-color:#F0F2EB;
   color: #555;
+  padding-bottom: 40px;
+
 }
 
 h1, .h1,
@@ -39,15 +42,17 @@ h6, .h6 {
 }
 
 .navbar-port .navbar-nav > li > a {
-  color:#fff
+    color:#D4EE5E
 }
 
-.navbar-port .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+.navbar-port .navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
     color: #ffffff;
     background-color:transparent;
 }
 .navbar-port .navbar-brand {
-    color:#eeeeee;
+    color:#D4EE5E;
 }
 
 
