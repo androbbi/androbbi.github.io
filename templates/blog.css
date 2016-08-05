@@ -42,7 +42,7 @@ h6, .h6 {
 }
 
 .navbar-port .navbar-nav > li > a {
-    color:#BCD8BF
+    color:#ebcdcd
 }
 
 .navbar-port .navbar-nav > .active > a,
@@ -52,9 +52,41 @@ h6, .h6 {
     background-color:transparent;
 }
 .navbar-port .navbar-brand {
-    color:#BCD8BF;
+    color:#ebcdcd;
 }
 
+/* Nav links */
+.port-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #cdddeb;
+}
+.port-nav-item:hover,
+.port-nav-item:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom 
+.navbar-port .active {
+  color: #fff;
+}
+.navbar-port .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  vertical-align: middle;
+  content: " ";
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid;
+  border-left: 5px solid transparent;
+}
+*/
 
 /*
  * Masthead for nav
@@ -126,6 +158,19 @@ h6, .h6 {
 .blog-main {
   font-size: 18px;
   line-height: 1.5;
+}
+
+.blog-image{
+  margin-bottom: 20px;
+}
+/*!
+ * Start Bootstrap - 4 Col Portfolio (http://startbootstrap.com/)
+ * Reference .portfolio-item
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+.portfolio-item {
+    margin-bottom: 25px;
 }
 
 /* Sidebar modules for boxing content */

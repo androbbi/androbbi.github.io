@@ -1,0 +1,323 @@
+"Baby_Crisis" by Brandon Gomez and Antony Robbins
+
+Release along with cover art, the source text, an interpreter, and a website.
+
+numCrumbs is a number variable. numCrumbs is 0.
+numLegos is a number variable. numLegos is 0.
+
+After taking inventory when the number of things carried by the player is greater than zero:
+	if numCrumbs is greater than zero:
+		say "  [numCrumbs] crumbs";
+	if numLegos is greater than zero:
+		say "  [numLegos] legos".
+		
+Strangling something is an activity.
+Strangling is an action applying to one visible thing.
+Understand "strangle [your step-sibling]" as strangling.
+
+Fighting something is an activity.
+Fighting is an action applying to one visible thing.
+Understand "fight [your step-sibling]" as fighting.
+
+Understand "lift [something]" as looking under.
+Understand "move [something]" as looking under.
+
+directions is an action applying to nothing.
+Understand "d" as directions.
+Understand "directions" as directions.
+
+A thing can be examined or unexamined. 
+After taking something unexamined: 
+	say "[run paragraph on]"; 
+	try examining the noun. 
+Carry out examining something: 
+	now the noun is examined. 
+
+When play begins:
+	say "You wake up, and you realized that your bed has gotten way bigger. Then, you realized that the bed did't get bigger but you have gotten smaller. You now want to investigate your house and try to find out why you have became so small. All you know is that the only person in your house this whole time is your two year old step-sibling. You must act quick because your parents asked you to babysit and you can't let them down.
+	
+	Oh my god! I can't believe I shrunk! What am I going to do? How am I going to get help? I think I'm going to have a panic attack! What should I do? There is nobody I can get help from! The only other person in this house is my step-sibling! Should I go and try to get them in their room? Well I have nothing else to do! My parents mom won't be here for another week! I might as well try to make comfort with my step-sibling! How do I even get down from here?!
+	
+	press d for directions
+	
+	".
+
+[your room]
+		
+A pillow is in The Bed. The description is "My comfy pillow...hmm what's that under it?".
+A string is in The Bed but the string is hidden. The description is "I bet I can use this string as rope!".
+Instead of taking the pillow:
+	say "I think I will just leave my [noun] here, it is way too big.".
+Instead of looking under the pillow for the first time:
+	now the string is in the bed;
+	now the player is carrying string;
+	say "You found a piece of string!";
+	say "You take the string.".
+A locked, openable, lockable door called the end of the bed is east of the bed and west of bedroom floor. The description is "It's a long way down to the bottom. I might not make it alive if I just jump off.".
+Every turn when the player is in the bed:
+	If player is carrying the string:
+		now the end of the bed is unlocked.
+Instead of opening the end of the bed:
+	If the end of the bed is locked:
+		say "I can't go down there, I will die";
+	Else if the end of the bed is unlocked and player is in the bed:
+		say "Imma go down";
+		move player to the bedroom floor;
+	Otherwise:
+		say "I can't get up there anymore.".
+carry out directions:
+	if player is in the bed:
+		say "I can go east to get off the bed.".
+
+Cereal is a room. North of the Cereal is the Bedroom Floor.
+Cereal Crumbs is in Cereal. The description is "My favorite cereal! Maybe these will come in handy!".
+Instead of taking Cereal Crumbs:
+	remove Cereal Crumbs from play;
+	say "taken";
+	now numCrumbs is numCrumbs + 3.
+carry out directions:
+	if player is in cereal:
+		say "I can go north to go back in the bedroom floor.".
+
+Every turn when the player is in the bedroom floor:
+	if the bedroom floor is visited and the bedroom floor was not visited:
+		say "Well I made it down in one piece! It feel like I just climed down a mountain! My room is a pigstyle with all these things lying on the floor! I have an open bag of cereal, my school things are lying everywhere, and my dirty clothes are lying around too! Well in order to get to the baby's room, I need to get to the hallway, which is east of here, go down south to the end of the hallway, then east to the room. Hopefully I dont run into and bugs or mice!";
+	if the north hallway was visited and player is not carrying lint and player is not sticker:
+		say "I'm going to have to find something to put on my shoes in order to get in the hallway. Its just way to slippery!";
+	If player is carrying lint and player is not carrying sticker:
+		say "If only I can use something sticky to put on my shoe in order to get the lint on my shoe.";
+	If player is carrying sticker and player is not carrying lint:
+		say "Well if only I can use this sticker to so I can make shoes so I can have some traction control!";
+	If player is carrying sticker and player is carrying sticker:
+		say "YES! I can make traction control shoes! This will be perfect! I can now go in the hallway!".
+Bedroom Floor is a room. 
+A pencil is in the Bedroom Floor. The description is "This was my first #2 pencil that I have ever owned. My grandpapa gave it to me when he dropped me off to kindergarten.".
+Your computer is in the bedroom floor. The description is "My 2000 Dell computer with Window ME installed in it.".
+Your Expressive Processing book is in the bedroom floor. The description is "This is a great summer read! I remembered that I put a sticker on the back of it!".
+A sticker is in the bedroom floor but it is hidden. The description is "This sticker has a very sticky residue that will make anything stick together.".
+A notebook is in the bedroom floor. The description is "My now giant college ruled notebook".
+Instead of looking under Your Expressive Processing book for the first time:
+	now the sticker is in the bedroom floor;
+	now the player is carrying a sticker;
+	say "You found a sticker underneath the book!";
+	say "You take the sticker.".
+Floor crumbs is in the bedroom floor. The description is "Hmm, maybe these will come in handy.".
+Instead of taking floor Crumbs:
+	remove floor Crumbs from play;
+	say "taken";
+	now numCrumbs is numCrumbs + 3.
+Instead of taking your computer:
+	say "I think I will just leave my [noun] here, it is way too big.".
+Instead of taking the pencil:
+	say "I think I will just leave my [noun] here, it is way too big.".
+Instead of taking your expressive processing book:
+	say "I think I will just leave my [noun] here, it is way too big.".
+Instead of taking the notebook:
+	say "I think I will just leave my [noun] here, it is way too big.".
+carry out directions:
+	if player is in the bedroom floor:
+		say "I can go east to go in the hallway, go north to go in the pile of clothes, or go south to go in the cereal box.".
+
+Pile of Clothes is a room. South of the Pile of Clothes is the Bedroom Floor.
+lint is in pile of clothes. The description is "This seems rough and durable. This is some grade A lint!".
+carry out directions:
+	If player is in pile of clothes:
+		say "I can go south to go back to the bedroom floor.".
+
+A openable door called your bedroom door is east of the bedroom floor and west of the north hallway. The description is "This will take me to the hallway.".
+
+Your Room is a region. The Bed, Cereal, Bedroom Floor and Pile of Clothes is in Your Room.
+
+[hallway]
+
+North Hallway is a room. South of the North Hallway is Middle Hallway.
+Your dog is in the North Hallway.
+Instead of taking your dog:
+	say "I think I will just leave my [noun] here, it is way too big.".
+Every turn when the player is in the North Hallway:
+	If player is not carrying lint or the player is not carrying a sticker:
+		say "You try to go in the hallway, but it is way to slippery and you slip and slid back to your room.";
+		move player to the bedroom floor;
+	Otherwise:
+		say "You see that the floor is slippery so you craft your own traction control shoes by using your sticker and lint.";
+carry out directions:
+	if player is in north hallway:
+		say "I can go north to some shoes, east to the staircase, south to the middle hallway, or west to my bedroom. ";
+
+Stairs is a room.  
+A locked door called the top of the stairs is west of the Stairs and east of North Hallway. The description is "Any attempt at climbing these stairs in your state and you'll probably break your ankles. You're hoping the answer to your problem is somewhere on this floor.".
+carry out directions:
+	if player is in stairs:
+		say "I can go west to go back to the north hallway.".
+
+Shoes is a room. South of the Shoes is the North Hallway. "Dang, these shoes reek, you're not sure why you climbed in here. No signs as to why you shrunk. Just you and a rather large stone.".
+A large stone is in Shoes. The description is "You find a large stone inside your mom's shoe. Well, it looks large from your perspective. It seems you could craft this stone with your string.".
+A Grappling Hook is in Shoes but the Grappling Hook is hidden. The description of the Grappling Hook is "You made a grappling hook out of string and stone! Smart! You should be able to climb higher places now!".
+carry out directions:
+	if player is in shoes:
+		say "I can go south to go back to the north hallway.".
+Every turn:
+	If player has grappling hook:
+		now the base of the pot is unlocked.
+
+Middle Hallway is a room. South of the Middle Hallway is South Hallway.
+Understand "craft [string] with [large stone]" as crafting. 
+		Crafting is an action applying to two things.
+		Carry out crafting: remove string from play.
+		Carry out crafting: remove large stone from play.
+		Carry out crafting:  now the player is carrying grappling hook.
+Understand "craft [large stone] with [string]" as crafting2. 
+		Crafting2 is an action applying to two things.
+		Carry out crafting2: remove string from play.
+		Carry out crafting2: remove large stone from play.
+		Carry out crafting2:  now the player is carrying grappling hook.
+carry out directions:
+	if player is in middle hallway:
+		say "I can go north to the north hallway, south to the south hallway, west to the tall cactus, or south to the mouse hole.".
+
+Tall Cactus is a room.
+A locked, openable door called the base of the pot is west of the Middle Hallway and east of Tall Cactus. The description is "The cactus that once reached to your shoulders now feels like a couple of stories high. At the end is a window, and you see the shadow of a figure. It sounds far-fetched but that may be the answer to your problem! Hey I think I see something on top of it. If only I had some sorta hook that grapples.".
+food crumbs is inside the tall cactus.
+Instead of taking food crumbs:
+	say "taken.";
+	now numCrumbs is numCrumbs + 3.
+every turn:
+	if numCrumbs is greater than 8:
+		now the entrance is unlocked;
+		if player is in middle hallway:
+			say "I have enough crumbs, I can get past the mouse now.".
+carry out directions:
+	if player is in tall cactus:
+		say "I can go east to go back to the middle hallway.".
+
+A locked, openable door called the entrance is east of the Middle Hallway and west of Mouse Hole. The description is "You've lived here for 6 months now and this is your first time seeing a mouse hole! Is it worth investigating, could the answer to your problems be here? Either way you will let your parents know there is a pest problem. As you walk in, a mouse runs towards you to greet you and you immediately run out. You won't be lunch today. If only I has some food to get past them.".
+
+South Hallway is a room.
+carry out directions:
+	if player is in the south hallway:
+		say "I can go north to the middle hallway, south to the box of legos, or east to the baby's room.".
+
+A Box of Legos is a room. North of the box of Legos is the south hallway.
+blocks is inside the box of legos. The description is "Hmm, I can use these to get to the crib".
+instead of taking blocks:
+	remove blocks from play;
+	say "legos taken";
+	now numLegos is numLegos + 5;
+carry out directions:
+	if player is in box of legos:
+		say "I can go north to go back the to the south hallway.".
+
+A locked door called the baby's door is east of the south hallway and west of the baby's floor. The description is "This is your baby brother's room. There's no way to get in, but you're desperate to regain your normal size and you won't rest until you've checked every room on this floor.".
+
+The Main Hallway is a region. North Hallway, shoes, Stairs, Tall Cactus, a box of legos, Middle Hallway and South Hallway is in The Main Hallway.
+
+[mouse hole]
+
+Mouse Hole is a room.  East of Mouse Hole is the Main Den. "You have to be quick while the mouse is distracted.".
+carry out directions:
+	if player is in mouse hole:
+		say "I can go west to the middle hallway or east to the main den.".
+
+Main Den is a room. West of Main Den is  the Mouse Hole. "This seems to be the biggest room in the tunnel you're in. If you're knowledge of mice has taught you anything, its that you wish you knew about mice dens since you know absolutely nothing. You're assuming you're near the exit.".
+carry out directions:
+	if player is in main den:
+		say "I can go west to the mouse hole, north to the nest, or east to the narrow exit.".
+
+Nest is a room. South of Nest is the Main Den. "Not entirely sure which fork in the road to take, you stumble upon the mice nest. You see a mother mouse nursing her babies. While this was cute the last time you were at the pet store, seeing these gigantic mice kind of freaks you out.".
+carry out directions:
+	if player is in the nest:
+		say "I can go south to the main den.".
+
+Narrow Exit is a room. West of Narrow Exit is Main Den. South of Narrow Exit is Stuffed Animals. "You see a light at the end of the tunnel, but don't go towards the light! But you don't have much choice, so, go towards the light.".
+carry out directions:
+	if player is in the narrow exit:
+		say "I can go west to the main den, or south to the stuffed animals inside the baby's room.".
+
+The Mouse Tunnel is a region. Mouse Hole , Nest, Narrow Exit and Main Den is in The Mouse Tunnel.
+
+
+[baby's room]
+
+Baby's Floor is a room. 
+Every turn when the player is in the baby's floor:
+	now the baby's door is unlocked;
+	if the baby's floor is visited and the baby's floor was not visited:
+		say "Well, Im finally here. I was only two door down, but it felt way more than that! I have traveled many piles of clothes, many crumbs of food, and I have defended myself from many enemies! The pray have become the hunter as I have not became the pray. The young now taken crontrol of the land as I lay wimpering. But now I should finish this once in for all. I have to climb up to the crib and fight my step-sibling! But how am I going to get up there? Maybe I should the things lying around the house.";
+		say "I can now unlock the door from here.".
+carry out directions:
+	if player is in the baby's floor:
+		say "I can go north to the stuffed animals, north east to the changing table, east to the trash, south to the crib, or west to the south hallway.".
+
+Trash is a room. West of the Trash is the Baby's Floor.
+carry out directions:
+	if player is in the trash:
+		say "I can go west to go back to the baby's floor.".
+
+Stuffed Animals is a room. South of Stuffed Animals is the Baby's Floor.
+Red blocks is in the stuffed animals. The description is "Hmm, I can use these to get to the crib.".
+Instead of taking the red blocks:
+	now the red blocks is in the stuffed animals;
+	say "You found some legos!";
+	say "You took the legos.";
+	now numLegos is numlegos + 2.
+carry out directions:
+	if player is in the stuffed animals:
+		say "I can go north to the narrow exit of the mouse hole, or south to the baby's floor.".
+
+Changing Table is a room. Southwest of Changing Table is Baby's Floor.
+Blue blocks is in the Changing table. The description is "Hmm, I can use these to get to the crib".
+Instead of taking the blue blocks:
+	now the blue blocks is in the changing table;
+	say "You found some legos!";
+	say "You took the legos.";
+	now numLegos is numlegos + 3.
+carry out directions:
+	if player is in the changing table:
+		say "I can go south west to go back to the baby's floor.".
+		
+Crib is a room. 
+Every turn when the player is in the Crib:
+	if the crib is visited and the crib was not visited:
+		say "'Well we meet for the last time' said your step-sibling.
+		I see you are using your powers to talk to me. You know why I am here, so I can get my life back!
+		'Hahahahaha! Fool! I won't turn you back, after the many weggies, ear numbs, and head scruffles you have given me! This is payback!'
+		I'm sorry for all those things, but no many should live a life like this! I am going to have to fight you!
+		'Okay, try!'
+		
+		To fight your step-sibling write: fight step-sibling.";
+Instead of fighting your step-sibling:
+	if a random chance of 1 in 2 succeeds:
+		say "Ouch you hit me! says the step-sibling!";
+	otherwise:
+		If a random chance of 1 in 4 succeeds:
+			say "This is useless, I'm going to have to strangle him!";
+		Otherwise:
+			say "Woah!";
+			say "Your step-sibling teleported you to the floor!";
+			now the player is in the baby's floor.
+Instead of strangling your step-sibling:
+	if a random chance of 1 in 2 succeeds:
+		say "'Hey! Get off of me! Wait, I'm feeling really tired! I...going......to.....go......sle.....'";
+		say "Wait...his head is shrinking! Did I just strangle the telekinesis out of him? What am I going to do now! I'm going to be small for the rest of my life! This can't be life! This can't be life!";
+		end the story;
+	otherwise:
+		say "Ouch!".
+carry out directions:
+	if player is in the crib:
+		say "I can go north to go back to the baby's floor.".
+
+Your step-sibling is in the crib. The description is "My step-sibling has telekinesis powers, that's how they made me so small, but why would they do such a thing...I love them. ".
+Instead of taking your step-sibling:
+	say "lets just leave them there".
+
+A locked, openable, lockable door called the crib pathway is north of the crib and south of the baby's floor. The description is "The only thing blocking my way to my step-sibling!".
+
+Every turn: 
+	If numLegos is greater than 9:
+		say "With my Legos, I can create a staircase to the crib";
+		now the crib pathway is unlocked.
+
+Baby's Room is a region. Baby's Floor, Crib, Changing Table, Trash and Stuffed Animals is in Baby's Room.
+
+When play ends:
+	say "The End".
