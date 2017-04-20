@@ -45,12 +45,17 @@ h6, .h6 {
     color:#ebcdcd
 }
 
-.navbar-port .navbar-nav > .active > a,
-.navbar-nav > .active > a:hover,
-.navbar-nav > .active > a:focus {
-    color: #ffffff;
-    background-color:transparent;
+.navbar-port .navbar-nav>.active>a {
+    color: #FFFFFF;
+    background-color: transparent;
 }
+
+.navbar-port .navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+  color: #FFFFFF;
+  background-color: transparent;
+}
+
 .navbar-port .navbar-brand {
     color:#ebcdcd;
 }
